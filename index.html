@@ -289,9 +289,28 @@ $("#s1 h1").setAttribute("aria-label","Happy Birthday, "+CFG.nama);
 /* hati dan bunga melayang */
 if(!reduce){var FL=["🩷","✨","🌸","🎀","🦋","💗","🌷"];for(var k=0;k<14;k++){var f=document.createElement("span");f.className="fl";f.setAttribute("aria-hidden","true");f.textContent=FL[k%FL.length];f.style.left=(Math.random()*96)+"vw";f.style.fontSize=(.9+Math.random()*1.3)+"rem";f.style.animationDuration=(14+Math.random()*14)+"s";f.style.animationDelay=(-Math.random()*20)+"s";document.body.appendChild(f)}}
 </script>
-<audio controls id="bgm">
+<!-- Tag audio ditaruh tanpa atribut autoplay -->
+<audio id="bgm" loop>
     <source src="musik.mp3" type="audio/mpeg">
-    Browser Anda tidak mendukung elemen audio.
 </audio>
+
+<script>
+    // Fungsi untuk memutar musik
+    function putarMusik() {
+        var audio = document.getElementById('bgm');
+        audio.play().catch(function(error) {
+            console.log("Autoplay diblokir oleh browser, menunggu interaksi pengguna.");
+        });
+        
+        // Hapus event listener setelah musik berhasil berputar agar tidak terpicu lagi saat klik berikutnya
+        document.removeEventListener('click', putarMusik);
+        document.removeEventListener('scroll', putarMusik);
+    }
+
+    // Musik akan berputar otomatis begitu pengguna mengklik atau men-scroll halaman web
+    document.addEventListener('click', putarMusik);
+    document.addEventListener('scroll', putarMusik);
+</script>
+
 </body>
 </html>
