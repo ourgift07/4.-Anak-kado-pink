@@ -288,11 +288,10 @@ $("#s1 h1").setAttribute("aria-label","Happy Birthday, "+CFG.nama);
 ["#s2 h2","#s3 h2"].forEach(function(q){var h=$(q);h.setAttribute("aria-label",h.textContent);wave(h)});
 /* hati dan bunga melayang */
 if(!reduce){var FL=["🩷","✨","🌸","🎀","🦋","💗","🌷"];for(var k=0;k<14;k++){var f=document.createElement("span");f.className="fl";f.setAttribute("aria-hidden","true");f.textContent=FL[k%FL.length];f.style.left=(Math.random()*96)+"vw";f.style.fontSize=(.9+Math.random()*1.3)+"rem";f.style.animationDuration=(14+Math.random()*14)+"s";f.style.animationDelay=(-Math.random()*20)+"s";document.body.appendChild(f)}}
+</script>
 <audio controls id="bgm">
     <source src="musik.mp3" type="audio/mpeg">
     Browser Anda tidak mendukung elemen audio.
 </audio>
-
-</script>
 </body>
 </html>
